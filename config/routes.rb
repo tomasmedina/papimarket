@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :products
+  resources :categories
+  resources :users
   get 'home/index'
   get 'home/timestamp'
 
