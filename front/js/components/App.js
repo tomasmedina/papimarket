@@ -2,25 +2,34 @@
  * @file App component.
  */
 
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap/Button';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import CardComponent from './Card';
 
 const App = () => {
-  const product = { name: 'producto1' };
+  const [products, setProducts] = useState({
+    products: null,
+  });
+
+  const fetchProducts = async () => {
+    await axios.get('/products').then(response => {
+      const { data } = response;
+      setProducts(oldProducts => ({ ...oldProducts, products: data }));
+    });
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
     <div>
       <h1>Test</h1>
-      <Card style={{ width: '18rem' }}>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      {products.products ? (
+        <CardComponent props={products.products} />
+      ) : (
+        console.log('NANI')
+      )}
     </div>
   );
 };

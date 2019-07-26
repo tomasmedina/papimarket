@@ -21,12 +21,13 @@ Category.create(categories)
 
 products = [
   {
-    title: 'Cuchufí',
+    title: 'Cuchuflí',
     description: 'Ricos y sabrosos cuchuflíes',
     category_id: Category.find_by(name: 'Embelecos').id,
     user_id: User.find_by(email: 'cristian@papinotas.com').id,
     stock: 30,
     expiration_date: Date.parse("2019-12-10")
+    image:'https://drive.google.com/file/d/13iak1ULoXY9roYE5lVHi-IqJKp9eIX5o/view?usp=sharing'
   },
   {
     title: 'Lasagna',
@@ -35,6 +36,7 @@ products = [
     user_id: User.find_by(email: 'juan@papinotas.com').id,
     stock: 20,
     expiration_date: Date.parse("2019-12-10")
+    image: 'https://drive.google.com/file/d/13aOt11TQJ54kxU3haGy_OK7r4cjoUSw8/view?usp=sharing'
   },
   {
     title: 'Boldad y perchas',
@@ -43,6 +45,7 @@ products = [
     user_id: User.find_by(email: 'javiera@papinotas.com').id,
     stock: 200,
     expiration_date: Date.parse("2019-12-10")
+    image:'https://drive.google.com/file/d/1458b8jMTgYz4bXXk37UQiRcH4lFlFm78/view?usp=sharing'
   }
 ]
 Product.create(products)
