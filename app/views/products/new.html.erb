@@ -13,7 +13,7 @@
 
 <div class="form-group">
   <%= label_tag(:category, "Category:") %>
-<%= select(:category, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: true}) %>
+  <%= select(:category, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: false}) %>
 </div>
 
 <div class="form-group">
