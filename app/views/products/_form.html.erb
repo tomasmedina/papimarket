@@ -11,38 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="form-group">
+    <%= form.label "Titulo" %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="form-group">
+    <%= form.label "Descripcion" %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+  <div class="form-group">
+    <%= form.label "Categoria"%>
+     <%= select(:product, :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: false}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :stock %>
+  <div class="form-group">
+    <%= form.label "Stock" %>
     <%= form.number_field :stock %>
   </div>
 
-  <div class="field">
-    <%= form.label :expiration_date %>
+
+  <div class="form-group">
+    <%= form.label "Fecha de expiracion" %>
     <%= form.date_select :expiration_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class="form-group">
+    <%= form.label "Imagen " %>
     <%= form.text_field :image %>
   </div>
 
